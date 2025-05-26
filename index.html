@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Procedural Galaxy Simulator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Procedural Galaxy Simulator 🌠</h1>
+    </header>
+
+    <main>
+        <div id="leftPanel">
+            <section id="controlsSection">
+                <h2>Galaxy Configuration</h2>
+                <div>
+                    <label for="numStarsSlider">Number of Stars (10-500):</label>
+                    <input type="range" id="numStarsSlider" name="numStarsSlider" min="10" max="500" value="100">
+                    <span id="numStarsValue">100</span>
+                </div>
+                <div>
+                    <label for="lifeChanceSlider">Life Chance (0-100%):</label>
+                    <input type="range" id="lifeChanceSlider" name="lifeChanceSlider" min="0" max="100" value="20">
+                    <span id="lifeChanceValue">20%</span>
+                </div>
+                <button id="generateGalaxyButton">Generate Galaxy</button>
+            </section>
+
+            <section id="statisticsSection">
+                <h2>Relevant Statistics</h2>
+                <div id="numericalStats">
+                    <p>Planets in Habitable Zone: <strong id="statHabitablePlanets">0</strong></p>
+                    <p>Planets with Life: <strong id="statPlanetsWithLife">0</strong></p>
+                    <p>Civilizations Detected: <strong id="statCivilizations">0</strong></p>
+                </div>
+                <div class="chartContainer">
+                    <h3>Star Type Distribution</h3>
+                    <canvas id="starTypesChart" width="260" height="200"></canvas>
+                    <div id="starTypesChartLegend" class="chartLegend"></div>
+                </div>
+                <div class="chartContainer">
+                    <h3>Planet Type Distribution</h3>
+                    <canvas id="planetTypesChart" width="260" height="200"></canvas>
+                    <div id="planetTypesChartLegend" class="chartLegend"></div>
+                </div>
+            </section>
+        </div>
+
+        <section id="galaxyVisualizerSection">
+            <h2>Visualizer</h2>
+            <canvas id="galaxyCanvas"></canvas>
+        </section>
+
+        <section id="discoveredPlanetsSection">
+            <h2>Discovered Celestial Bodies</h2>
+            <div id="discoveredPlanetsContainer">
+                </div>
+        </section>
+    </main>
+
+    <div id="entityDetailModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal-button">&times;</span>
+            <h3 id="modalEntityName">Entity Name</h3>
+            <div id="modalEntityDetails">
+                </div>
+            <div id="modalEntityRelatedListSection">
+                <h4 id="modalRelatedListTitle">Related Items:</h4>
+                <ul id="modalEntityRelatedList">
+                    </ul>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Developed with pure HTML, CSS, and JavaScript. Visuals procedurally generated.</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

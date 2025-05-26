@@ -1,0 +1,329 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #00001a;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-color: #1a1a3d;
+    padding: 1em;
+    text-align: center;
+    border-bottom: 2px solid #4d4d7a;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    padding: 1em;
+    gap: 1em;
+}
+
+#leftPanel {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    flex: 1;
+    min-width: 300px;
+}
+
+#controlsSection, #statisticsSection, #discoveredPlanetsSection {
+    background-color: #0f0f28;
+    padding: 1em;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(77, 77, 122, 0.5);
+}
+
+#galaxyVisualizerSection {
+    background-color: #000;
+    padding: 1em;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(77, 77, 122, 0.5);
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 400px;
+}
+
+#discoveredPlanetsSection {
+    flex: 1;
+    min-width: 280px;
+    max-height: calc(100vh - 200px);
+    overflow-y: auto;
+}
+
+
+#controlsSection div {
+    margin-bottom: 1em;
+}
+
+#controlsSection label {
+    display: block;
+    margin-bottom: 0.5em;
+}
+
+#controlsSection input[type="range"] {
+    width: calc(100% - 50px);
+    vertical-align: middle;
+}
+#controlsSection span { /* For slider value display */
+    display: inline-block;
+    width: 40px;
+    text-align: right;
+    vertical-align: middle;
+}
+
+
+#generateGalaxyButton {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    width: 100%;
+    margin-top: 0.5em;
+}
+
+#generateGalaxyButton:hover {
+    background-color: #45a049;
+}
+
+#galaxyCanvas {
+    border: 1px solid #4d4d7a;
+    background-color: #050510;
+    max-width: 100%;
+}
+
+#statisticsSection h2, #discoveredPlanetsSection h2, #controlsSection h2, #galaxyVisualizerSection h2 {
+    margin-top: 0;
+    color: #9f9fff;
+    border-bottom: 1px solid #4d4d7a;
+    padding-bottom: 0.5em;
+}
+
+#numericalStats p {
+    margin: 0.5em 0;
+    font-size: 0.95em;
+}
+#numericalStats strong {
+    color: #79c0ff;
+}
+
+.chartContainer {
+    margin-top: 1.5em;
+    text-align: center;
+}
+.chartContainer h3 {
+    font-size: 1em;
+    color: #ccc;
+    margin-bottom: 0.5em;
+}
+.chartContainer canvas {
+    max-width: 100%;
+    border-radius: 4px;
+}
+.chartLegend {
+    font-size: 0.8em;
+    margin-top: 0.5em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+.chartLegend span {
+    display: inline-flex;
+    align-items: center;
+}
+.chartLegend .color-box {
+    width: 10px;
+    height: 10px;
+    margin-right: 5px;
+    border: 1px solid #555;
+    display: inline-block;
+}
+
+
+#discoveredPlanetsContainer {
+    max-height: 350px;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+#discoveredPlanetsContainer ul {
+    list-style: none;
+    padding: 0;
+}
+
+#discoveredPlanetsContainer > ul > li { /* Star entry in the main list */
+    background-color: #1c1c3f;
+    margin-bottom: 8px;
+    padding: 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+}
+#discoveredPlanetsContainer > ul > li:hover {
+    background-color: #2d2d5a;
+}
+
+#discoveredPlanetsContainer ul ul { /* Planet list under a star */
+    margin-top: 5px;
+    padding-left: 15px;
+}
+
+#discoveredPlanetsContainer ul ul li {
+    font-size: 0.9em;
+    color: #ccc;
+}
+#discoveredPlanetsContainer ul ul li.has-life {
+    color: #86e09c;
+    font-weight: bold;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.7);
+}
+
+.modal-content {
+    background-color: #1a1a3d;
+    margin: 8% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 750px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    color: #fff;
+}
+
+.close-modal-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-modal-button:hover,
+.close-modal-button:focus {
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#modalEntityDetails p, #modalEntityRelatedList li {
+    margin-bottom: 0.5em;
+    line-height: 1.6;
+}
+
+#modalEntityRelatedList li { /* Style for items in the modal's related list */
+    background-color: #2d2d5a;
+    padding: 10px;
+    margin-bottom: 8px;
+    border-radius: 5px;
+}
+
+#modalEntityRelatedList li p {
+    margin: 0.3em 0;
+}
+
+#modalEntityRelatedList li strong {
+    color: #9f9fff;
+}
+
+/* Styles for procedurally generated visuals in Modal */
+.star-visual-modal {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+    border: 1px solid #555;
+    box-shadow: 0 0 8px #fff, inset 0 0 5px rgba(255,255,255,0.5);
+}
+
+.planet-visual-modal, .asteroid-visual-modal, .organism-visual-modal {
+    width: 22px;
+    height: 22px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 8px;
+    border-radius: 50%; /* Default for planets */
+    flex-shrink: 0;
+    box-shadow: inset 1px 1px 3px rgba(0,0,0,0.4), inset -1px -1px 3px rgba(255,255,255,0.2);
+}
+
+.asteroid-visual-modal {
+    border-radius: 3px;
+    background-image:
+        radial-gradient(circle at 30% 30%, #999 1px, transparent 1.5px),
+        radial-gradient(circle at 70% 60%, #888 1px, transparent 1.5px),
+        radial-gradient(circle at 50% 80%, #aaa 0.5px, transparent 1px);
+    background-color: #6b6b6b;
+}
+
+#modalEntityRelatedList ul { /* List of organisms within related items */
+    padding-left: 20px;
+    list-style: none;
+}
+#modalEntityRelatedList ul li { /* Organism item */
+    background-color: transparent;
+    padding: 5px 0;
+    margin-bottom: 2px;
+    display: flex;
+    align-items: center;
+    border: none;
+}
+
+.organism-visual-modal {
+    width: 16px;
+    height: 16px;
+    border: 1px solid #4b4b4b;
+}
+
+.entity-info-header { /* Used in modal for visual + name */
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+.entity-info-header p {
+    margin: 0;
+    margin-left: 5px;
+}
+
+.clickable-entity {
+    color: #8ab4f8; /* Light blue, similar to links */
+    text-decoration: underline;
+    cursor: pointer;
+    font-weight: bold;
+}
+.clickable-entity:hover {
+    color: #a7d7ff;
+    text-decoration: none;
+}
+
+footer {
+    background-color: #1a1a3d;
+    padding: 0.5em;
+    text-align: center;
+    font-size: 0.8em;
+    border-top: 1px solid #4d4d7a;
+    margin-top: auto;
+}
