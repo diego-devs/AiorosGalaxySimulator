@@ -28,9 +28,9 @@ Hola! this is a dynamic, interactive galaxy simulator built with pure HTML, CSS,
 * **Configurable Generation:** Control the number of stars and the base probability of life before generating a new galaxy.
 * **Celestial Body List:** An overview list of all discovered stars and their planets, allowing for quick navigation and expansion.
 
-## 🚀 Live Demo (Placeholder)
+## 🚀 Live Demo 
 
-[Live Demo here , `[https://your-username.github.io/procedural-galaxy-simulator/](https://mediumorchid-turkey-187846.hostingersite.com/)`](#)
+[Live Demo here](https://mediumorchid-turkey-187846.hostingersite.com/)
 
 ## 🛠️ Technologies Used
 
