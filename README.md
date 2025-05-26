@@ -1,6 +1,6 @@
 # Procedural Galaxy Simulator 🌠
 
-A dynamic, interactive galaxy simulator built with pure HTML, CSS, and JavaScript. Explore procedurally generated star systems, planets, and the potential for life, all rendered directly in your browser without external libraries or image files.
+Hola! this is a dynamic, interactive galaxy simulator built with pure HTML, CSS, and JavaScript. Explore procedurally generated star systems, planets, and the potential for life, all rendered directly in your browser without external libraries or image files.
 
 ## ✨ Features
 
@@ -30,28 +30,16 @@ A dynamic, interactive galaxy simulator built with pure HTML, CSS, and JavaScrip
 
 ## 🚀 Live Demo (Placeholder)
 
-*(Consider hosting this on GitHub Pages, Netlify, Vercel, or a similar service and linking it here.)*
-
-[Link to Live Demo - e.g., `https://your-username.github.io/procedural-galaxy-simulator/`](#)
-
-## 📸 Screenshot (Placeholder)
-
-*(Consider adding a screenshot of the application in action here.)*
-
-`![Screenshot of the Galaxy Simulator](./screenshot.png)`
+[Live Demo here , `[https://your-username.github.io/procedural-galaxy-simulator/](https://mediumorchid-turkey-187846.hostingersite.com/)`](#)
 
 ## 🛠️ Technologies Used
 
-* **HTML5:** For the basic structure of the application.
-* **CSS3:** For styling the user interface, modal, and procedural visual elements.
-* **JavaScript (ES6+):** For all the application logic, including:
     * Galaxy and celestial body generation.
     * Physics calculations (simplified for habitable zones).
     * DOM manipulation and event handling.
     * Procedural drawing on HTML Canvas for the galaxy view.
     * Procedural generation of HTML/CSS visuals for the detail modal.
     * Statistics calculation and pie chart rendering.
-* **No external libraries or frameworks were used.**
 
 ## ⚙️ How to Run Locally
 
